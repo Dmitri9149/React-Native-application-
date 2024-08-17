@@ -25,5 +25,8 @@
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-native": "^4.1.0"
   },
+  "scripts": {
+    "lint": "eslint ./src/**/*.{js,jsx} App.js --no-error-on-unmatched-pattern"
+  },
   "private": true
 }

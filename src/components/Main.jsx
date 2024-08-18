@@ -5,7 +5,6 @@ import AppBar from './AppBar';
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: Constants.statusBarHeight,
         flexGrow:1,
         flexShrink:1
     },
@@ -15,7 +14,6 @@ const Main = () => {
     return (
         <View style= {styles.container}>
             <AppBar/> 
-            <Text>Rate Repository Applications</Text>
             <RepositoryList/>
         </View>
     );

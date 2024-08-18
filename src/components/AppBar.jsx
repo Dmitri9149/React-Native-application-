@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   pressable: {
     color: "white",
     fontWeight: "bold",
-    padding: 10,
+    padding: 15,
 }
 });
 

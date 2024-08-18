@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
   },
 });
 
+// (hypothetical) list of reviewed GitHub repositories  
 const repositories = [
   {
     id: 'jaredpalmer.formik',

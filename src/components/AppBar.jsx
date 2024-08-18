@@ -6,11 +6,16 @@ const styles = StyleSheet.create({
     paddingTop: Constants.statusBarHeight,
     backgroundColor: "black"
   },
+  pressable: {
+    color: "white",
+    fontWeight: "bold",
+    padding: 10,
+}
 });
 
 const AppBar = () => {
   return <View style={styles.container}>
-    <Text style={{color: "white"}}>Button</Text>
+    <Text style={styles.pressable}>Repositories</Text>
   </View>;
 };
 

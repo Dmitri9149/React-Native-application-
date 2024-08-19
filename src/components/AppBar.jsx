@@ -1,15 +1,15 @@
 import { View, StyleSheet, Text } from 'react-native';
 import Constants from 'expo-constants';
-import theme from '../theme1';
+import theme from '../theme';
 
 const styles = StyleSheet.create({
   container: {
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: theme1.bgColors.textPrimary,
+    backgroundColor: theme.colors.textPrimary,
   },
   pressable: {
-    color: theme1.colors.darkBackground,
-    fontWeight: theme1.fontWeights.bold,
+    color: "white",
+    fontWeight: theme.fontWeights.bold,
     padding: 15,
 }
 });

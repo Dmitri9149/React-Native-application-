@@ -11,12 +11,18 @@ const styles = StyleSheet.create({
   },
   asRow: {
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+  },
+  asRow1: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexGrow: 0,
+    alignSelf: 'flex-start'
   },
   asColumn: {
-    flexDirection: 'column'
-  }
-
+    display: 'flex',
+    flexDirection: 'column',
+  },
 });
 
 const formatCounts = (value) => { 
@@ -35,7 +41,9 @@ const RepositoryItem = ({repository}) => {
           <View style={styles.asColumn}>
             <Text fontWeight={'bold'} fontSize={'subheading'}>Full name: {repository.fullName}</Text>
             <Text fontSize={'subheading'}>Description: {repository.description}</Text>
-            <Text fontSize={'subheading'} color={'primary'}>{repository.language}</Text>
+            <View style={styles.asRow1}>
+              <Text fontSize={'subheading'} background={'blue'}>{repository.language}</Text>
+            </View>
           </View>
         </View>
         <Text>Stars: {formatCounts(repository.stargazersCount)}</Text>

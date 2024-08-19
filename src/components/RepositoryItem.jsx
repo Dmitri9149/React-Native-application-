@@ -12,16 +12,26 @@ const styles = StyleSheet.create({
   asRow: {
     display: 'flex',
     flexDirection: 'row',
+    padding: 10,
+    columnGap: 20
   },
-  asRow1: {
+  asRow2: {
     display: 'flex',
     flexDirection: 'row',
-    flexGrow: 0,
-    alignSelf: 'flex-start'
+  },
+  asRow3: {
+    display: 'flex',
+    flexDirection: 'row',
+    columnGap: 20
   },
   asColumn: {
     display: 'flex',
     flexDirection: 'column',
+  },
+  asColumn1: {
+    display: 'flex',
+    flexDirection: 'column',
+    rowGap: 5,
   },
 });
 
@@ -38,18 +48,35 @@ const RepositoryItem = ({repository}) => {
       <View style={styles.flexContainer}>
         <View style={styles.asRow}>
           <Image style={styles.image} source={{uri: repository.ownerAvatarUrl}}></Image>
-          <View style={styles.asColumn}>
-            <Text fontWeight={'bold'} fontSize={'subheading'}>Full name: {repository.fullName}</Text>
-            <Text fontSize={'subheading'}>Description: {repository.description}</Text>
-            <View style={styles.asRow1}>
-              <Text fontSize={'subheading'} background={'blue'}>{repository.language}</Text>
+          <View style={styles.asColumn1}>
+            <Text fontWeight={'bold'} fontSize={'body'}>Full name: {repository.fullName}</Text>
+            <View  style={{ flexDirection: 'row' , flex: 1}}>
+              <Text fontSize={'body'}>Description: {repository.description}</Text>
+            </View>
+            <View style={styles.asRow2}>
+              <Text style={{padding: 5, borderRadius: 5}} color={'white'} fontSize={'subheading'} background={'blue'}>{repository.language}</Text>
             </View>
           </View>
         </View>
-        <Text>Stars: {formatCounts(repository.stargazersCount)}</Text>
-        <Text>Forks: {formatCounts(repository.forksCount)}</Text>
-        <Text>Rating: {repository.ratingAverage}</Text>
-        <Text>Reviews: {repository.reviewCount}</Text>
+        <View style={styles.asRow3}>
+          <View style={styles.asColumn}>
+            <Text fontWeight={'bold'}>{formatCounts(repository.stargazersCount)}</Text>           
+            <Text>Stars</Text>
+          </View>
+          <View>
+            <Text fontWeight={'bold'}>{formatCounts(repository.forksCount)}</Text>           
+            <Text>Forks</Text>
+          </View>
+          <View>
+            <Text fontWeight={'bold'}>{repository.reviewCount}</Text>
+            <Text>Reviews</Text>
+          </View>
+          <View>
+            <Text fontWeight={'bold'}>{repository.ratingAverage}</Text>
+            <Text>Rating</Text>
+          </View>
+
+        </View>
       </View>
     )
   };

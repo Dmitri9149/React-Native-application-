@@ -6,6 +6,17 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
   },
+  flexContainer: {
+    display: 'flex'
+  },
+  asRow: {
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  asColumn: {
+    flexDirection: 'column'
+  }
+
 });
 
 const formatCounts = (value) => { 
@@ -18,12 +29,15 @@ const formatCounts = (value) => {
 
 const RepositoryItem = ({repository}) => {
     return (
-      <View>
-        <Image style={styles.image} source={{uri: repository.ownerAvatarUrl}}></Image>
-        <Text>Full name: {repository.fullName}</Text>
-        <Text>Description: {repository.description}</Text>
-        <Text>Language: {repository.language}</Text>
-        <Text>Full name: {repository.fullName}</Text>
+      <View style={styles.flexContainer}>
+        <View style={styles.asRow}>
+          <Image style={styles.image} source={{uri: repository.ownerAvatarUrl}}></Image>
+          <View style={styles.asColumn}>
+            <Text fontWeight={'bold'} fontSize={'subheading'}>Full name: {repository.fullName}</Text>
+            <Text fontSize={'subheading'}>Description: {repository.description}</Text>
+            <Text fontSize={'subheading'} color={'primary'}>{repository.language}</Text>
+          </View>
+        </View>
         <Text>Stars: {formatCounts(repository.stargazersCount)}</Text>
         <Text>Forks: {formatCounts(repository.forksCount)}</Text>
         <Text>Rating: {repository.ratingAverage}</Text>

@@ -8,6 +8,14 @@ const styles = StyleSheet.create({
   },
 });
 
+const formatCounts = (value) => { 
+  return (
+    value <  1000 
+    ? value 
+    : (value/1000).toFixed(1) + 'k'
+  )
+}
+
 const RepositoryItem = ({repository}) => {
     return (
       <View>
@@ -16,8 +24,8 @@ const RepositoryItem = ({repository}) => {
         <Text>Description: {repository.description}</Text>
         <Text>Language: {repository.language}</Text>
         <Text>Full name: {repository.fullName}</Text>
-        <Text>Stars: {repository.stargazersCount}</Text>
-        <Text>Forks: {repository.forksCount}</Text>
+        <Text>Stars: {formatCounts(repository.stargazersCount)}</Text>
+        <Text>Forks: {formatCounts(repository.forksCount)}</Text>
         <Text>Rating: {repository.ratingAverage}</Text>
         <Text>Reviews: {repository.reviewCount}</Text>
       </View>

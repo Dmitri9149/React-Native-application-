@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: Constants.statusBarHeight,
     backgroundColor: theme.colors.textPrimary,
+    flexDirection: 'row'
   },
   textstyle: {
     color: "white",
@@ -22,8 +23,13 @@ const AppBar = () => {
       <Pressable>
         <Text style={styles.textstyle}>Repositories</Text>
       </Pressable>
+      <Pressable>
+        <Text style={styles.textstyle}>SignIn</Text>
+      </Pressable>
     </View>
   )
 };
+
+
 
 export default AppBar;

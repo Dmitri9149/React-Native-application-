@@ -1,7 +1,11 @@
 import Text from './Text';
 
 const SignIn = () => {
-  return <Text>The sign-in view</Text>;
+    const onSubmit = (values)  => {
+        username = values.username;
+        password = values.password;
+    } 
+  return <SignInForm onSubmit={onSubmit}/>;
 };
 
 export default SignIn;

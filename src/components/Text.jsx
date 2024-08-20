@@ -33,9 +33,12 @@ const styles = StyleSheet.create({
   backgroundDark: {
     backgroundColor: theme.background.black
   },
-  backgroundButton1: {
+  backgroundBlueLike: {
     backgroundColor: theme.background.blueLike
-  },
+  }
+//  backgroundButton1: {
+//    backgroundColor: theme.background.blueLike
+//  },
 });
 
 const Text = ({ color, background, fontSize, fontWeight, style, ...props }) => {
@@ -46,7 +49,7 @@ const Text = ({ color, background, fontSize, fontWeight, style, ...props }) => {
     color === 'white' && styles.colorWhite,
     fontSize === 'subheading' && styles.fontSizeSubheading,
     fontWeight === 'bold' && styles.fontWeightBold,
-    background === 'blue' && styles.backgroundButton1,
+    background === 'blue' && styles.backgroundBlueLike,
     style,
   ];
 

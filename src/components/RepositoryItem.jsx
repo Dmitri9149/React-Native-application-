@@ -65,9 +65,9 @@ const RepositoryItem = ({repository}) => {
         <View style={styles.asRow}>
           <Image style={styles.image} source={{uri: repository.ownerAvatarUrl}}></Image>
           <View style={styles.asColumn1}>
-            <Text fontWeight={'bold'} fontSize={'body'}>Full name: {repository.fullName}</Text>
+            <Text fontWeight={'bold'} fontSize={'body'}>{repository.fullName}</Text>
             <View >
-              <Text style={styles.wrapText} fontSize={'body'}>Description: {repository.description}</Text>
+              <Text style={styles.wrapText} fontSize={'body'}>{repository.description}</Text>
             </View>
             <View style={styles.asRow2}>
               <Text style={{padding: 5, borderRadius: 5}} color={'white'} fontSize={'subheading'} background={'blue'}>{repository.language}</Text>

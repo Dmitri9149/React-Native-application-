@@ -7,13 +7,18 @@ const styles = StyleSheet.create({
     width: 50,
   },
   flexContainer: {
-    display: 'flex'
+    display: 'flex',
+    marginLeft: 10,
+    marginRight: 70
   },
   asRow: {
     display: 'flex',
     flexDirection: 'row',
-    padding: 10,
-    columnGap: 20
+    rowGap: 20,
+    columnGap: 10,
+    flexGrow: 1,
+    paddingTop: 10,
+
   },
   asRow2: {
     display: 'flex',
@@ -22,11 +27,13 @@ const styles = StyleSheet.create({
   asRow3: {
     display: 'flex',
     flexDirection: 'row',
-    columnGap: 20
+    marginRight: 70,
+    columnGap: 70
   },
   asColumn: {
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center'
   },
   asColumn1: {
     display: 'flex',
@@ -63,15 +70,15 @@ const RepositoryItem = ({repository}) => {
             <Text fontWeight={'bold'}>{formatCounts(repository.stargazersCount)}</Text>           
             <Text>Stars</Text>
           </View>
-          <View>
+          <View style={styles.asColumn}>
             <Text fontWeight={'bold'}>{formatCounts(repository.forksCount)}</Text>           
             <Text>Forks</Text>
           </View>
-          <View>
+          <View style={styles.asColumn}>
             <Text fontWeight={'bold'}>{repository.reviewCount}</Text>
             <Text>Reviews</Text>
           </View>
-          <View>
+          <View style={styles.asColumn}>
             <Text fontWeight={'bold'}>{repository.ratingAverage}</Text>
             <Text>Rating</Text>
           </View>

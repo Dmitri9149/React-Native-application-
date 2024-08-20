@@ -1,5 +1,6 @@
 import { View, Image, StyleSheet } from 'react-native';
-import Text from './Text'
+import Text from './Text';
+import theme from '../theme';
 
 const styles = StyleSheet.create({
   image: {
@@ -9,16 +10,16 @@ const styles = StyleSheet.create({
   flexContainer: {
     display: 'flex',
     marginLeft: 10,
-    marginRight: 70
+//    marginRight: 10,
+    rowGap: 10,
+    backgroundColor: theme.background.textBackgroundLight,
   },
   asRow: {
     display: 'flex',
     flexDirection: 'row',
-    rowGap: 20,
     columnGap: 10,
-    flexGrow: 1,
     paddingTop: 10,
-
+    paddingRight: 20,
   },
   asRow2: {
     display: 'flex',
@@ -28,7 +29,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     marginRight: 70,
-    columnGap: 70
+    justifyContent: 'space-around'
+//    columnGap: 70
   },
   asColumn: {
     display: 'flex',
@@ -40,6 +42,13 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     rowGap: 5,
   },
+  wrapText: {
+    paddingRight: 50, 
+    flex:1, 
+    flexWrap: 'wrap'
+
+  }
+
 });
 
 const formatCounts = (value) => { 
@@ -57,8 +66,8 @@ const RepositoryItem = ({repository}) => {
           <Image style={styles.image} source={{uri: repository.ownerAvatarUrl}}></Image>
           <View style={styles.asColumn1}>
             <Text fontWeight={'bold'} fontSize={'body'}>Full name: {repository.fullName}</Text>
-            <View  style={{ flexDirection: 'row' , flex: 1}}>
-              <Text fontSize={'body'}>Description: {repository.description}</Text>
+            <View >
+              <Text style={styles.wrapText} fontSize={'body'}>Description: {repository.description}</Text>
             </View>
             <View style={styles.asRow2}>
               <Text style={{padding: 5, borderRadius: 5}} color={'white'} fontSize={'subheading'} background={'blue'}>{repository.language}</Text>

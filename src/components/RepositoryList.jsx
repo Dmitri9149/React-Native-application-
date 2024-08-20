@@ -1,10 +1,14 @@
 import { FlatList, View, StyleSheet } from 'react-native';
 import RepositoryItem from './RepositoryItem';
+import theme from '../theme'
 
 const styles = StyleSheet.create({
   separator: {
     height: 10,
   },
+  testBackgroundColor: {
+    backgroundColor: theme.background.testBackgroundDark,
+  }
 });
 
 // (hypothetical) list of reviewed GitHub repositories  
@@ -34,7 +38,7 @@ const repositories = [
   {
     id: 'django.django',
     fullName: 'django/django',
-    description: 'The Web framework for perfectionists with deadlines.',
+    description: 'The Web framework for perfectionists with deadlines and more.',
     language: 'Python',
     forksCount: 21015,
     stargazersCount: 48496,
@@ -59,7 +63,7 @@ const ItemSeparator = () => <View style={styles.separator} />;
 
 const RepositoryList = () => {
   return (
-    <FlatList
+    <FlatList style={styles.testBackgroundColor}
       data={repositories}
       ItemSeparatorComponent={ItemSeparator}
       renderItem={({item}) => <RepositoryItem repository={item} />}

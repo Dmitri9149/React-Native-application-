@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSizes.body,
     fontFamily: theme.fonts.main,
     fontWeight: theme.fontWeights.normal,
+//    paddingRight: 50,
+//    flex:1,
+//    flexWrap: 'wrap'
   },
   colorTextSecondary: {
     color: theme.colors.textSecondary,

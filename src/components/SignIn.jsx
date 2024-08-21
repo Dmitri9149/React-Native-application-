@@ -22,6 +22,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     paddingLeft: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
     backgroundColor: theme.background.blueLike,
     justifyContent: 'center'
   },

@@ -7,9 +7,9 @@ import theme from '../theme'
 const styles = StyleSheet.create({
   flexContainer: {
     display: 'flex',
- //   paddingLeft: 10,
-//    marginRight: 10,
-    rowGap: 10,
+    flexDirection: 'column',
+    paddingTop: 10,
+    rowGap: 20,
     backgroundColor: theme.background.textBackgroundDark,
   },
   asRowTextInput: {

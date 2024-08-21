@@ -10,7 +10,7 @@ const theme = {
         black: 'black',
         blueLike: '#0366d6',
         mainComponentBackground: 'maroon', //'#e1e4e8',
-        testBackgroundDark: 'maroon',
+        textBackgroundDark: 'maroon',
         textBackgroundLight: 'yellow'
     },
     fontSizes: {

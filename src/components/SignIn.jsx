@@ -41,7 +41,7 @@ const SignInForm = ({onSubmit}) => {
           />
           </View>
           <View style={styles.asRow}>
-          <TextInput
+          <TextInput secureTextEntry={true}
             placeholder="Password"
             value={formik.values.password}
             onChangeText={formik.handleChange('password')}

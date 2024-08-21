@@ -1,5 +1,6 @@
 import { TextInput, Pressable, StyleSheet, View } from 'react-native';
-import { Formik, useFormik  } from 'formik';
+import { Formik, useFormik, resetForm } from 'formik';
+import * as yup from 'yup';
 
 import Text from './Text';
 import theme from '../theme'
@@ -34,9 +35,19 @@ const initialValues = {
     password: '',
   };
 
+const validationSchema = yup.object().shape({
+  username: yup
+    .string()
+    .required('Username is required'),
+  password: yup
+    .string()
+    .required('Password is required'),
+});
+
 const SignInForm = ({onSubmit}) => {
     const formik = useFormik({
         initialValues,
+        validationSchema,
         onSubmit,
       });
 
@@ -49,12 +60,22 @@ const SignInForm = ({onSubmit}) => {
             onChangeText={formik.handleChange('username')}
           />
           </View>
+          <View>
+            {formik.touched.username && formik.errors.username && (
+              <Text style={{ color: 'red' }}>{formik.errors.username}</Text>
+            )}
+          </View>
           <View style={styles.asRowTextInput}>
           <TextInput secureTextEntry={true}
             placeholder="Password"
             value={formik.values.password}
             onChangeText={formik.handleChange('password')}
           />
+          </View>
+          <View>
+            {formik.touched.password && formik.errors.password && (
+              <Text style={{ color: 'red' }}>{formik.errors.password}</Text>
+            )}
           </View>
           <Pressable onPress={formik.handleSubmit}>
           <View style={styles.asRowSignIn}>
@@ -67,9 +88,10 @@ const SignInForm = ({onSubmit}) => {
 
 
 const SignIn = () => {
-    const onSubmit = (values)  => {
+    const onSubmit = (values, {resetForm} )  => {
     const { username, password}  = values;
     console.log(`Password: ${password} and Username: ${username}`)
+    resetForm({values: initialValues})
     } 
   return <SignInForm onSubmit={onSubmit}/>;
 };

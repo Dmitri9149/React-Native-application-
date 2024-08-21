@@ -12,11 +12,18 @@ const styles = StyleSheet.create({
     rowGap: 10,
     backgroundColor: theme.background.textBackgroundDark,
   },
-  asRow: {
+  asRowTextInput: {
     display: 'flex',
     flexDirection: 'row',
     paddingLeft: 10,
     backgroundColor: theme.background.textBackgroundLight
+  },
+  asRowSignIn: {
+    display: 'flex',
+    flexDirection: 'row',
+    paddingLeft: 10,
+    backgroundColor: theme.background.blueLike,
+    justifyContent: 'center'
   },
 });
 
@@ -33,25 +40,25 @@ const SignInForm = ({onSubmit}) => {
 
       return (
         <View style={styles.flexContainer}>
-          <View style={styles.asRow}>
+          <View style={styles.asRowTextInput}>
           <TextInput 
             placeholder="Username"
             value={formik.values.username}
             onChangeText={formik.handleChange('username')}
           />
           </View>
-          <View style={styles.asRow}>
+          <View style={styles.asRowTextInput}>
           <TextInput secureTextEntry={true}
             placeholder="Password"
             value={formik.values.password}
             onChangeText={formik.handleChange('password')}
           />
           </View>
-          <View style={styles.asRow}>
           <Pressable onPress={formik.handleSubmit}>
-            <Text>Submit</Text>
-          </Pressable>
+          <View style={styles.asRowSignIn}>
+            <Text color='white' >SignIn</Text>
           </View>
+          </Pressable>
         </View>
       );
 };
